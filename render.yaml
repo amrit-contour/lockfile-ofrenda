@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lockfile-ofrenda
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: GHOST_MODEL
+        value: gemma3:4b

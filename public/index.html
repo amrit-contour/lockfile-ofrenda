@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lockfile Ofrenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="mast">
+        <h1>Lockfile Ofrenda</h1>
+        <p class="lede">
+          Drop an npm <strong>package-lock.json</strong>. We read the lockfile
+          and the public registry — last publish, deprecated notes, maintainers —
+          then light a candle for anything that has gone quiet. Local Gemma may
+          only speak from those facts. It does not invent CVEs or replacements.
+        </p>
+      </header>
+
+      <div class="shell">
+        <section aria-labelledby="altar-label">
+          <h2 id="altar-label" class="visually-hidden">Altar</h2>
+          <form class="drop" id="drop">
+            <p>
+              The lockfile is the ofrenda. Direct dependencies and nested
+              <span class="meta">node_modules</span> both count.
+            </p>
+            <div class="row-actions">
+              <label class="file-btn">
+                Choose lockfile
+                <input id="file" type="file" accept=".json,application/json" />
+              </label>
+              <button type="button" class="ghost" id="sample">
+                Use the demo lockfile
+              </button>
+            </div>
+            <p class="meta" id="scan-meta">No lockfile yet.</p>
+          </form>
+
+          <div class="filters" role="group" aria-label="Filter offerings">
+            <button type="button" data-filter="ghosts" aria-pressed="true">Quiet</button>
+            <button type="button" class="ghost" data-filter="all" aria-pressed="false">All</button>
+            <button type="button" class="ghost" data-filter="direct" aria-pressed="false">Direct</button>
+          </div>
+
+          <div class="ledger" id="ledger"></div>
+        </section>
+
+        <aside class="slip" id="slip" aria-live="polite">
+          <h2>The slip is blank</h2>
+          <p class="body">
+            Choose an offering on the left. A remembrance is written from the
+            registry record. If Gemma wanders, we keep the record instead.
+          </p>
+        </aside>
+      </div>
+    </main>
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+    </style>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
